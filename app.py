@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'meshweaver-secret'
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-# In-memory state for demo
+
 nodes_state = {
     f"node-{i}": {"id": f"node-{i}", "ip": "127.0.0.1", "port": 9000+i, "status": "online", "cpu": random.randint(10,70), "ram": random.randint(20,60), "last_heartbeat": time.time(), "tasks_completed": random.randint(5,50)}
     for i in range(1,6)
@@ -51,7 +51,7 @@ def submit_task():
     func_code = data.get('code', 'def task(): return 42')
     
     task_id = str(uuid.uuid4())[:8]
-    # Find best node - lowest CPU
+    
     online_nodes = [n for n in nodes_state.values() if n["status"]=="online"]
     best = min(online_nodes, key=lambda x: x["cpu"]) if online_nodes else None
     if not best:
@@ -68,7 +68,7 @@ def submit_task():
         time.sleep(1)
         tasks_log.append({"time": time.strftime("%H:%M:%S"), "msg": f"Task {task_id} assigned to {best['id']}", "type": "assign"})
         time.sleep(random.uniform(1,3))
-        # Simulate 90% success
+        
         if random.random() > 0.3:
             tasks_stats["running"]-=1
             tasks_stats["completed"]+=1
