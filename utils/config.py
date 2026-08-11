@@ -1,0 +1,1 @@
+CONFIG = {"gossip_interval": 5, "heartbeat_timeout": 10, "transport": "asyncio+TLS", "protocol": "Kademlia DHT + Gossip"}
