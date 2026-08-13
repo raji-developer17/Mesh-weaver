@@ -2,12 +2,9 @@ from flask import Flask, render_template, jsonify, request
 from flask_socketio import SocketIO
 import asyncio, threading, time, random, uuid
 from collections import deque
-
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'meshweaver-secret'
 socketio = SocketIO(app, cors_allowed_origins="*")
-
 
 nodes_state = {
     f"node-{i}": {"id": f"node-{i}", "ip": "127.0.0.1", "port": 9000+i, "status": "online", "cpu": random.randint(10,70), "ram": random.randint(20,60), "last_heartbeat": time.time(), "tasks_completed": random.randint(5,50)}
