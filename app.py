@@ -5,7 +5,6 @@ from collections import deque
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'meshweaver-secret'
 socketio = SocketIO(app, cors_allowed_origins="*")
-
 nodes_state = {
     f"node-{i}": {"id": f"node-{i}", "ip": "127.0.0.1", "port": 9000+i, "status": "online", "cpu": random.randint(10,70), "ram": random.randint(20,60), "last_heartbeat": time.time(), "tasks_completed": random.randint(5,50)}
     for i in range(1,6)
@@ -13,7 +12,6 @@ nodes_state = {
 tasks_log = deque(maxlen=100)
 tasks_stats = {"total": 185, "running": 0, "completed": 0, "failed": 0, "pending": 0}
 cpu_history = {f"node-{i}": deque([random.randint(10,70) for _ in range(20)], maxlen=20) for i in range(1,6)}
-
 def background_updater():
     while True:
         time.sleep(2)
