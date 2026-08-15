@@ -43,7 +43,7 @@ result = factorial(20)</textarea><br><br>
 <div class="panel"><h4>CPU Usage</h4><canvas id="cpuChart"></canvas></div>
 </div>
 <script>
-// SOCKET.IO VENDA - POLLING METHOD
+
 var cpuChart;
 function initChart(){
  var ctx=document.getElementById('cpuChart').getContext('2d');
@@ -56,7 +56,7 @@ function drawTopology(nodes) {
   var ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Center positions for 5 nodes
+  
   var centerX = canvas.width / 2;
   var centerY = canvas.height / 2;
   var radius = 75;
