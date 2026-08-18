@@ -5,7 +5,6 @@ from network.client import MeshClient
 from monitor.gossip import GossipProtocol
 from monitor.heartbeat import HeartbeatMonitor
 from monitor.system import get_system_stats
-
 class MeshNode:
     def __init__(self, node_id, host='127.0.0.1', port=9001, peers=None):
         self.id = node_id
