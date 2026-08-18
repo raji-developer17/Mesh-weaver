@@ -85,7 +85,7 @@ ctx.shadowBlur = 5;
     }
   }
 ctx.shadowBlur = 0;
-  // Draw nodes
+  
   nodes.forEach(node => {
     var pos = positions[node.id];
     ctx.beginPath();
@@ -95,7 +95,7 @@ ctx.shadowBlur = 0;
     ctx.strokeStyle = '#fff';
     ctx.stroke();
 
-    // Label
+    
     ctx.fillStyle = '#c5d1de';
     ctx.font = '12px monospace';
     ctx.fillText(node.id, pos.x - 18, pos.y + 28);
@@ -118,7 +118,7 @@ function loadData(){
    drawTopology(nodes);
  });
  
- // Fetch logs via new endpoint (we will use /api/logs)
+ 
  fetch('/api/logs').then(r=>r.json()).then(data=>{
    document.getElementById('running').innerText=data.stats.running;
    document.getElementById('completed').innerText=data.stats.completed;
