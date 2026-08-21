@@ -27,7 +27,6 @@ threading.Thread(target=background_updater, daemon=True).start()
 @app.route('/')
 def index():
     return render_template('index.html')
-
 @app.route('/api/nodes')
 def api_nodes():
     return jsonify(list(nodes_state.values()))
