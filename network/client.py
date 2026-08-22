@@ -3,7 +3,7 @@ class MeshClient:
     def __init__(self, node): self.node=node
     async def connect_to_peers(self):
         while True:
-            await asyncio.sleep(5) # gossip
+            await asyncio.sleep(5) 
     async def send_task(self, target, payload):
         try:
             reader, writer = await asyncio.open_connection(target.host if hasattr(target,'host') else '127.0.0.1', target.port if hasattr(target,'port') else 9002)
