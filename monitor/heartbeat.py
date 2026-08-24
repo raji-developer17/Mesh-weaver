@@ -4,7 +4,7 @@ class HeartbeatMonitor:
     async def start(self):
         while True:
             await asyncio.sleep(2)
-            # Check if any peer missed heartbeat
+            
             now = time.time()
             for peer_id, last in list(self.last_seen.items()):
                 if now - last > 10:
