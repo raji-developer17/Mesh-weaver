@@ -1,5 +1,4 @@
-# Kademlia DHT implementation placeholder
-# In production: from kademlia.network import Server
+
 class Discovery:
     def __init__(self, node): self.node=node
     async def bootstrap(self, bootstrap_nodes):
