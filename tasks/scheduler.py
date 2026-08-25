@@ -1,4 +1,4 @@
-# Load Balancer - chooses lowest CPU node
+
 class Scheduler:
     def __init__(self, gossip):
         self.gossip = gossip
