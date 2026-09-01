@@ -111,13 +111,10 @@ function loadData(){
    
    drawTopology(nodes);
  });
- 
- 
  fetch('/api/logs').then(r=>r.json()).then(data=>{
    document.getElementById('running').innerText=data.stats.running;
    document.getElementById('completed').innerText=data.stats.completed;
    document.getElementById('failed').innerText=data.stats.failed;
-   
    let div=document.getElementById('log');
    div.innerHTML = data.logs.slice().reverse().map(entry=>{
      let color = entry.type=='success'?'#22c55e':entry.type=='error'?'#ef4444':'#22d3ee';
