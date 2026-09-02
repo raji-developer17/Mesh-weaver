@@ -24,6 +24,8 @@ def background_updater():
         socketio.emit('update', {'nodes': list(nodes_state.values()), 'cpu_history': {k:list(v) for k,v in cpu_history.items()}, 'stats': tasks_stats, 'logs': list(tasks_log)})
 
 threading.Thread(target=background_updater, daemon=True).start()
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
