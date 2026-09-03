@@ -25,7 +25,6 @@ def background_updater():
 
 threading.Thread(target=background_updater, daemon=True).start()
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
