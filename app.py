@@ -42,7 +42,6 @@ def api_logs():
 def submit_task():
     data = request.json
     func_code = data.get('code', 'def task(): return 42')
-    
     task_id = str(uuid.uuid4())[:8]
     
     online_nodes = [n for n in nodes_state.values() if n["status"]=="online"]
